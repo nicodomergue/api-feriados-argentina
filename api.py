@@ -33,7 +33,6 @@ def group_dates_by_month(date_objects, year):
 def get_data(year):
     data = get_holidays_of_year(year)
     formatted_data = group_dates_by_month(data, year)
-    print(formatted_data)
     return jsonify(formatted_data)
 
 

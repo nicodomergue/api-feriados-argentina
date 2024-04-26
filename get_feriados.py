@@ -40,7 +40,6 @@ def get_variable_value(url, variable_name):
             # Extract the text content of the script tag
             # script_text = script.get_text().encode().decode("unicode-escape")
             script_text = script.get_text()
-            # print(script_text)
 
             # Use regular expressions to find the variable and its value
             match = re.search(
@@ -64,7 +63,6 @@ def get_holidays_of_year(year):
 
     if value is not None:
         # json_dictionary = create_json_object(jsonData)
-        # print(json_dictionary)
         # # save_to_json(json_dictionary, "2024.json")
         # with open("2024.json", "w", encoding="utf-8") as file:
         #     json.dump(json_dictionary, file, indent=4, ensure_ascii=False)
