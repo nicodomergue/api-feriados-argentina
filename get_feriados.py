@@ -54,21 +54,20 @@ def get_variable_value(url, variable_name):
     return None
 
 
-# Example usage
-url = 'https://www.argentina.gob.ar/interior/feriados-nacionales-2024'
-variable_name = 'holidays2024'
-value = get_variable_value(url, variable_name)
+def get_holidays_of_year(year):
+    # Example usage
+    url = f'https://www.argentina.gob.ar/interior/feriados-nacionales-{year}'
+    variable_name = f'holidays{year}'
+    value = get_variable_value(url, variable_name)
 
-jsonData = eval(value)
+    jsonData = eval(value)
 
-
-if value is not None:
-    # print(f"The value of {variable_name} is: {value}")
-
-    json_dictionary = create_json_object(jsonData)
-    print(json_dictionary)
-    # save_to_json(json_dictionary, "2024.json")
-    with open("2024.json", "w", encoding="utf-8") as file:
-        json.dump(json_dictionary, file, indent=4, ensure_ascii=False)
-else:
-    print(f"Variable {variable_name} not found on the webpage.")
+    if value is not None:
+        # json_dictionary = create_json_object(jsonData)
+        # print(json_dictionary)
+        # # save_to_json(json_dictionary, "2024.json")
+        # with open("2024.json", "w", encoding="utf-8") as file:
+        #     json.dump(json_dictionary, file, indent=4, ensure_ascii=False)
+        return jsonData
+    else:
+        print(f"Variable {variable_name} not found on the webpage.")
